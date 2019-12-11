@@ -67,10 +67,10 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'demo1.pipelines.Demo1Pipeline': 300,
-    # 'scrapy.pipelines.images.ImagesPipeline': 1
-    'demo1.pipelines.MysqlPoolPipeline': 2,
-    'demo1.pipelines.MiuiPipeline': 1
+    # 'demo1.pipelines.Demo1Pipeline': 300,
+    # # 'scrapy.pipelines.images.ImagesPipeline': 1
+    # 'demo1.pipelines.MysqlPoolPipeline': 2,
+    'demo1.pipelines.BookMongoPipeline': 1
 }
 IMAGES_URLS_FIELD = "front_image_url"
 project_dir = os.path.abspath(os.path.dirname(__file__))
@@ -79,17 +79,15 @@ IMAGES_STORE = os.path.join(project_dir, "images")
 # IMAGES_MIN_HEIGHT=100
 
 
-# Enable and configure the AutoThrottle extension (disabled by default)
-# See http://doc.scrapy.org/en/latest/topics/autothrottle.html
+
 # AUTOTHROTTLE_ENABLED = True
-# The initial download delay
+#
 # AUTOTHROTTLE_START_DELAY = 5
-# The maximum download delay to be set in case of high latencies
+#
 # AUTOTHROTTLE_MAX_DELAY = 60
-# The average number of requests Scrapy should be sending in parallel to
-# each remote server
+#
 # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
-# Enable showing throttling stats for every response received:
+#
 # AUTOTHROTTLE_DEBUG = False
 
 # Enable and configure HTTP caching (disabled by default)
@@ -99,7 +97,4 @@ IMAGES_STORE = os.path.join(project_dir, "images")
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-HOST = "localhost"
-NAME = "root"
-PASSWD = "root"
-DBNAME = "miui"
+

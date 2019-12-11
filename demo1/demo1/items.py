@@ -10,10 +10,21 @@ from scrapy.loader.processors import MapCompose, TakeFirst, Join
 from scrapy.loader import ItemLoader
 
 
-class Demo1Item(scrapy.Item):
+class Book(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    name = scrapy.Field()
+    id = scrapy.Field()
+    author = scrapy.Field()
+    cover = scrapy.Field()
+    bookDesc = scrapy.Field()
+    lastUpdate = scrapy.Field()
+    lastChapter = scrapy.Field()
+
+class Chapter(scrapy.Item):
+    # define the fields for your item here like:
+    bookId = scrapy.Field()
+    content = scrapy.Field()
+    name = scrapy.Field()
 
 
 class MiuiItemLoader(ItemLoader):

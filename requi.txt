@@ -1,0 +1,5 @@
+scrapy
+pymysql
+fake_useragent
+Pillow
+pymongo
