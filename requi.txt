@@ -3,3 +3,4 @@ pymysql
 fake_useragent
 Pillow
 pymongo
+shortuuid

@@ -6,8 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from scrapy.loader.processors import MapCompose, TakeFirst, Join
 from scrapy.loader import ItemLoader
+from scrapy.loader.processors import TakeFirst
 
 
 class Book(scrapy.Item):
@@ -19,14 +19,17 @@ class Book(scrapy.Item):
     bookDesc = scrapy.Field()
     lastUpdate = scrapy.Field()
     lastChapter = scrapy.Field()
-    chapterIds = scrapy.Field()
+
 
 class Chapter(scrapy.Item):
-    # define the fields for your item here like:
-    # bookId = scrapy.Field()
     content = scrapy.Field()
-    name = scrapy.Field()
-    _id=scrapy.Field()
+    _id = scrapy.Field()
+
+
+class BidChapId(scrapy.Item):
+    bId = scrapy.Field()
+    chpId = scrapy.Field()
+    chpName = scrapy.Field()
 
 
 class MiuiItemLoader(ItemLoader):
@@ -54,4 +57,4 @@ class MiuiItem(scrapy.Item):
             self["url_object_code"], self["author"], self["group"], self["integral"], self["phoneType"],
             self["miuiVersion"], self["classify"], self["title"], self["view_nums"], self["replies"], self["content"],
             self["image_file_path"])
-        return insert_sql,params
+        return insert_sql, params

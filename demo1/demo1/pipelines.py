@@ -8,7 +8,7 @@ import pymongo
 import pymysql
 from scrapy.pipelines.images import ImagesPipeline
 
-from demo1.items import Book,Chapter
+from demo1.items import Book,Chapter,BidChapId
 
 
 class Demo1Pipeline(object):
@@ -32,10 +32,12 @@ class BookMongoPipeline(object):
 
         if isinstance(item, Book):
             self.x=self.mydb['book'].insert(data)
+        elif isinstance(item,BidChapId):
+            self.x=self.mydb['bid_chapid'].insert(data)
         else:
             self.mydb['chapter'].insert(data)
 
-        return item,str(self.x)
+        return item
 
 class BookPipeline(object):
     def __init__(self):
